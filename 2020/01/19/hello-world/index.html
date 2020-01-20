@@ -59,7 +59,7 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;"></div>
+<div class="overlay" style="background: #D3D1DC;"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -116,7 +116,7 @@
 			
 			
 			<div>
-				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=1&height=66"></iframe>
+				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=415086031&auto=1&height=66"></iframe>
 			</div>
 			
 				
@@ -132,7 +132,7 @@
       
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #D3D1DC"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -305,7 +305,7 @@
         <li>
           <strong>版权声明： </strong>
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+          本博客所有文章除特别声明外，均采用 <a href="" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
         </li>
         
       </ul>
@@ -427,35 +427,37 @@
 
 
 
+      <div class="valine_comment"></div>
+<!--载入js，在</body>之前插入即可-->
+<!--Leancloud 操作库:-->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<!--Valine 的核心代码库-->
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+  var notify = 'true' == true ? true : false;
+  var verify = 'false' == true ? true : false;
+  new Valine({
+      // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+      av: AV,
+      el: '.valine_comment',
+      emoticon_url: 'https://cloud.panjunwen.com/alu',
+      emoticon_list: ["狂汗.png","不说话.png","汗.png","坐等.png","献花.png","不高兴.png","中刀.png","害羞.png","皱眉.png","小眼睛.png","暗地观察.png"],
+      app_id: 'lJoPRrPMjT7MD87sEV8Oetkd-gzGzoHsz',
+      app_key: 'tgvTukd74SlJuspyh8dSvXUz',
+      placeholder: '有话要说？'
+    });
+</script>
+
+
+ 
 
 
 
 
 
 
-  
-  <div id="gitment-ctn"></div>
-  
-    <!-- 中文 -->
-    <link rel="stylesheet" href="/lib/gitment.css">
-    <script src="/lib/gitment.js"></script>
-  
-  <script>
-    <!-- id: "Hello World" -->
-    var gitment = new Gitment({
-      id: "20200119152240",
-      owner: 'LinJinChao',
-      repo: 'yilia-plus-demo',
-      oauth: {
-        client_id: 'd649dfbcb3c32b6a3ccb',
-        client_secret: '03b3aafbf0b020b064a9d3d74139fb030a00297e',
-      },
-    })
-    gitment.render('gitment-ctn')
-  </script>
 
 
-  
 
 
 
@@ -471,7 +473,7 @@
       	<div class="footer-right">
 			
 			
-      		GitHub:<a href="https://github.com/JoeyBling/hexo-theme-yilia-plus" target="_blank">hexo-theme-yilia-plus</a> by Litten
+      		GitHub:<a href="" target="_blank">hexo-theme-yilia-plus</a> by Lin
       	</div>
     </div>
   </div>
