@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>photos | 蜗牛</title>
+  <title>堆排序 | 蜗牛</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="photos">
-<meta property="og:url" content="http://yoursite.com/photos/index.html">
+  <meta name="description" content="1、概念​    堆排序(Heapsort)是指利用堆这种数据结构所设计的一种算法。堆的结构近似完全二叉树的结构，并同时满足堆积的性质：即子节点的键值或索引总是小于（或者大于）它的父结点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="堆排序">
+<meta property="og:url" content="http://yoursite.com/2020/09/09/%E5%A0%86%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="蜗牛">
+<meta property="og:description" content="1、概念​    堆排序(Heapsort)是指利用堆这种数据结构所设计的一种算法。堆的结构近似完全二叉树的结构，并同时满足堆积的性质：即子节点的键值或索引总是小于（或者大于）它的父结点。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-21T05:04:10.000Z">
-<meta property="article:modified_time" content="2020-01-21T05:04:10.672Z">
+<meta property="article:published_time" content="2020-09-09T05:30:10.000Z">
+<meta property="article:modified_time" content="2020-09-09T11:45:08.553Z">
 <meta property="article:author" content="林蜗牛">
+<meta property="article:tag" content="sort">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="蜗牛" type="application/atom+xml">
@@ -195,14 +198,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-堆排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      photos
+      堆排序
     </h1>
   
 
@@ -214,8 +217,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/photos/index.html" class="archive-article-date">
-        <time datetime="2020-01-21T05:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-21</time>
+<a href="/2020/09/09/%E5%A0%86%E6%8E%92%E5%BA%8F/" class="archive-article-date">
+        <time datetime="2020-09-09T05:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-09</time>
 </a>
 
   
@@ -228,7 +231,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">529字</span>
     </span>
   </span>
 
@@ -237,7 +240,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -248,7 +251,23 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><p>​    <span style='color:red'><code>堆排序(Heapsort)</code></span>是指利用堆这种数据结构所设计的一种算法。堆的结构近似完全二叉树的结构，并同时满足堆积的性质：即子节点的键值或索引总是小于（或者大于）它的父结点。</p>
+ <a id="more"></a> 
+
+<h3 id="2、堆"><a href="#2、堆" class="headerlink" title="2、堆"></a>2、堆</h3><p>​    <span style='color:green'>堆是一颗顺序存储的完全二叉树。</span></p>
+<p>​    其中子节点的键值或索引总是大于它的父结点，这样的堆称为小根堆。</p>
+<p>​    其中子节点的键值或索引总是小于它的父结点，这样的堆称为小根堆。</p>
+<pre><code>假设用数组存储堆，其父节点的索引下标为i，则有：
+   左孩子节点下标：left = 2 * i + 1</code></pre><p>​        右孩子节点下标：left = 2 * i + 2</p>
+<p>​        它的父节点下标：parent = (i - 1) / 2</p>
+<h3 id="3、算法思想"><a href="#3、算法思想" class="headerlink" title="3、算法思想"></a>3、算法思想</h3><ul>
+<li>首先，按堆的定义将数组 R[0..n]调整为堆（这个过程称为创建初始堆），交换 R[0]和 R[n]；</li>
+<li>然后，将 R[0..n-1]调整为堆，交换 R[0]和 R[n-1]；</li>
+<li>如此反复，直到交换了 R[0]和 R[1]为止。</li>
+</ul>
+<h3 id="4、代码实现"><a href="#4、代码实现" class="headerlink" title="4、代码实现"></a>4、代码实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">heapAdjust</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> parent, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//temp 保存当前父节点</span></span><br><span class="line">        <span class="keyword">int</span> temp = arr[parent];</span><br><span class="line">        <span class="comment">//先获得左孩子</span></span><br><span class="line">        <span class="keyword">int</span> child = <span class="number">2</span> * parent + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (child &lt; length)&#123;</span><br><span class="line">            <span class="comment">//如果有右孩子结点，并且右孩子结点的值大于左孩子结点，则选右孩子结点</span></span><br><span class="line">            <span class="keyword">if</span> (child + <span class="number">1</span> &lt; length &amp;&amp; arr[child + <span class="number">1</span>] &gt; arr[child])&#123;</span><br><span class="line">                child++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//如果父结点的值已经大于孩子结点的值，则直接结束</span></span><br><span class="line">            <span class="keyword">if</span> (temp &gt;= arr[child])&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//把孩子结点的值赋给父结点</span></span><br><span class="line">            arr[parent] = arr[child];</span><br><span class="line">            <span class="comment">//选取孩子结点的左孩子结点，继续向下筛选</span></span><br><span class="line">            parent = child;</span><br><span class="line">            child = <span class="number">2</span> * child + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        arr[parent] = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] heapSrot(<span class="keyword">int</span>[] arr) &#123;</span><br><span class="line">        <span class="comment">//循环建立初始堆</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = arr.length /<span class="number">2</span> ; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            heapAdjust(arr,i,arr.length);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//进行n-1次循环，完成排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = arr.length - <span class="number">1</span>; i &gt; <span class="number">0</span> ; i--) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">            arr[i] = arr[<span class="number">0</span>];</span><br><span class="line">            arr[<span class="number">0</span>] = temp;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 筛选 R[0] 结点，得到i-1个结点的堆</span></span><br><span class="line">            heapAdjust(arr,<span class="number">0</span>,i);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
     
 
     
@@ -284,7 +303,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/photos/index.html" title="photos" target="_blank">http://yoursite.com/photos/index.html</a>
+          <a href="http://yoursite.com/2020/09/09/堆排序/" title="堆排序" target="_blank">http://yoursite.com/2020/09/09/堆排序/</a>
         </li>
         
         <li>
@@ -301,6 +320,17 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sort</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -351,7 +381,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/photos/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/09/%E5%A0%86%E6%8E%92%E5%BA%8F/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -363,6 +393,16 @@
   </div>
 </article>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/07/hello/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hello</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 <aside class="wrap-side-operation">
@@ -385,7 +425,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、概念"><span class="toc-number">1.</span> <span class="toc-text">1、概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、堆"><span class="toc-number">2.</span> <span class="toc-text">2、堆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、算法思想"><span class="toc-number">3.</span> <span class="toc-text">3、算法思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、代码实现"><span class="toc-number">4.</span> <span class="toc-text">4、代码实现</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -470,7 +510,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
